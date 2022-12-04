@@ -1,1 +1,57 @@
+WordPress can be used to handle a variety of different and varied tasks for a web application. Often, more complex or unique problems can be solved with a bit of
+custom code within the WordPress ecosystem. Sometimes, however, there is a reason to offload a task to another environment. Perhaps there’s an existing service that
+handles your data with the perfect output structure. Maybe you need to manipulate an image in a very particular manner. Or, you might even need to
+process data using machine learning. This could be difficult to do within WordPress’ ecosystem, or even just to tackle within the constraints of time and budget.
+Imagine that your application (for example, your WordPress site) is broken into smaller services (i.e. microservice). Each service handles one 
+part of your application’s operation. One service might only handle the authentication of users. Another service might handle the comment system. 
+Yet another service might handle the routing of web pages. All of these microservices operate together through APIs (application programming interfaces)
+to form a cohesive product. In a nutshell, this is the idea of microservices
 
+Once you have decided that building a microservice is right for you and your specific problem, you build it. How you do that is up to you. You might
+build something in a programming language that nobody has heard of, or using a service like Now from Zeit or Amazon Web Services’ Lambda
+
+To pass data to your microservice, you will want to use WordPress’ HTTP API:
+
+Code Snippet:
+<?php
+
+/*<?php
+
+/*
+ * There are many different actions you might
+ * hook into to trigger a post to your microservice
+ */
+add_action( 'sample_action', 'post_to_microservice', 10 );
+
+function post_to_microservice() {
+
+	$response = wp_remote_post(
+		'http://your-url.test',
+		array(
+			'headers' => array(
+				/**
+				* You might include authorization here,
+				* depending on your microservice's setup
+				*/
+			),
+			'body' => array(
+				/**
+				* This is where you would pass any data
+				* needed for your microservice to consume
+				*/
+				'data' => 'Test data',
+			),
+		)
+	);
+
+	if ( is_wp_error( $response ) ) {
+		// Handle the error here
+		sample_handle_error( $response );
+		return;
+	}
+
+	// Handle a successful response here
+	sample_handle_success( $response );
+	return;
+
+}
