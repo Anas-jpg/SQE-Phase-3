@@ -1,1 +1,6 @@
+phpcs-security-audit is a set of PHP_CodeSniffer rules that finds vulnerabilities and weaknesses related to security in PHP code.
+The tool also checks for CVE issues and security advisories related to the CMS/framework. This enables you to follow the versioning of
+components during static code analysis.
+The main reason for this project being an extension of PHP_CodeSniffer is to have easy integration into continuous integration systems. 
+It also allows for finding security bugs that are not detected with some object oriented analysis (such as PHPMD).
 
