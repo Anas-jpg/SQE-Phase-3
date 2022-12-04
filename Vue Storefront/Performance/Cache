@@ -1,3 +1,8 @@
+What Does Cache Memory Mean?
+Cache memory is a small-sized type of volatile computer memory that provides high-speed data access to a processor and stores frequently used computer programs,
+applications and data. A temporary storage of memory, cache makes data retrieving easier and more efficient. It is the fastest memory in a computer, and is typically
+integrated onto the motherboard and directly embedded in the processor or main random access memory (RAM).
+
 SSR Output Cache:
 Vue Storefront supports a very efficient Server Side Rendering cache. In this mode, the generated HTML pages are fully stored in the Redis cache. The cache entries
 are then tagged with all the products, categories (and potentially other data entities) used to render that specific page.
