@@ -1,0 +1,21 @@
+To improve the security of Vue Storefront applications, vue storefront preinstall the Helmet (opens new window)security extension by default 
+for Nuxt application and the Server Middleware.
+
+In this document we show how to change the default configuration in both applications. For a list of all available options,
+
+Configuring Helmet in Nuxt 
+Helmet is disabled by default. You can enable it using the helmet property in the @vue-storefront/middleware/nuxt module configuration. 
+You can pass true to enable it with the default configuration or an object to use your custom configuration.
+
+// nuxt.config.js
+export default {
+  modules: [
+    ['@vue-storefront/middleware/nuxt', {
+      helmet: true
+      // or
+      helmet: {
+        // ...configuration
+      }
+    }]
+  ]
+}
