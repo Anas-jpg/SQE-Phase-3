@@ -1,1 +1,13 @@
+1.1  WordPress has undergone continual hardening so its core software can address and mitigate common security threats, 
+     including the Top 10 list identified by The Open Web Application SecurityProject (OWASP) as common security vulnerabilities,
+     which are discussed in this document.
 
+1.2  The WordPress Security Team, in collaboration with the WordPress Core Leadership Team and backed by the WordPress global community, 
+    works to identify and resolve security issues in the core software available for distribution and installation at WordPress.org, as
+    well as recommending and documenting security best practices for third-party plugin and theme authors
+    
+1.3  Site developers and administrators should pay particular attention to the correct use of core APIs and underlying server configuration 
+     which have been the source of common vulnerabilities, as well as ensuring all users employ strong passwords to access WordPress
+1.4  The WordPress Security Team often collaborates with other security teams to address issues in common dependencies, such as resolving the
+     vulnerability in the PHP XML parser, used by the XML-RPC API that ships with WordPress, in WordPress 3.9.24. This vulnerability resolution
+     was a result of a joint effort by both WordPress and Drupal security teams.
