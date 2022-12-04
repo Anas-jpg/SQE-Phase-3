@@ -1,0 +1,3 @@
+Vue store front provides the reusability of the components as the
+basics of the ecommerce includes the check Out modules and category module
+so we can reusable we don't have to build from scratch

@@ -1,0 +1,22 @@
+Vue Storefront is just a Nuxt.js project under the hood. For this reason, our project structure inherits from Nuxt.js but has some additional files.
+
+To learn about it in-depth, you can refer to the Directory Structure in Nuxt.js project (opens new window)document, but the gist of it is:
+
+.nuxt (opens new window)is a dynamically generated build directory. You should not manually modify it, nor synchronize it using version control like GIT.
+
+components (opens new window)contains Vue.js components used on different pages or parts of your application. You can import these components from pages, layouts, and other components.
+
+lang (opens new window)contains translations for your application. Available locales are configured in the nuxt.config.js file.
+
+layouts (opens new window)contains Vue.js components that act as a UI base for the whole application or specific pages.
+
+middleware (opens new window)contains JavaScript files that contain custom functions run before rendering a whole application or just a specific layout or page. These can be used, for example, to protect pages from unauthorized access or redirect if some conditions are not met.
+
+pages (opens new window)contains Vue.js components that Nuxt.js automatically registers as routes.
+
+static (opens new window)contains files that likely won't change, such as favicon, robots.txt, sitemap, or company logos.
+
+middleware.config.js and nuxt.config.js configurations file are described in detail in the Configuration document.
+
+Some integrations can have slightly different structures, with more or fewer files and directories. For more information, refer to the Nuxt.js documentation linked above and the integration documentation.
+

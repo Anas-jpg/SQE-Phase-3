@@ -1,0 +1,19 @@
+Lint, or a linter, is a static code analysis tool used to flag programming errors, bugs, stylistic errors and suspicious constructs
+
+Vue Store Front is composed of 
+Vue.js
+Nuxt.js
+Server Middleware
+
+
+
+So for Vue.Js,  The official eslint-plugin-vue supports linting both the template and script parts of Vue single file components.
+
+Make sure to use the plugin's included config in your ESLint config:
+
+Another option is using eslint-loader so that your *.vue files are automatically linted on save during development:
+
+npm install -D eslint eslint-loader
+
+for Nuxt.js, If you want to have runtime lint (having ESLint running after a file has been saved), you can enable the eslint
+feature of fork-ts-checker-webpack-plugin by configuring the typeCheck module option
