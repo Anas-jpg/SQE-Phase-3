@@ -1,1 +1,19 @@
+Modular code that is easy to (re)use is an important skill if you are considering developing WordPress themes or plugins
+A component is anything that is also displayed on a WordPress website. Think of a grid of articles, buttons, headings, images, toggle sections, tabs, 
+a list of categories and so forth.
 
+Creating a structure for Modular components: step by step Procedure
+
+1. Set up your development environment
+       For Development, set up a WordPress website running locally, and VSCode as editor
+2. Create a new folder structure in /wp-content/plugins
+3. •	 Booting the plugin: /wp-php-components-example.php
+4. The component class: /src/classes/Components/Component.php
+       Our component class is interesting. This is an abstract class, meaning 
+       it can not be executed by itself. The abstract class sets the rules for
+       how all child classes (classes that extend this class) should look like.
+5. An example component: /src/classes/Components/Example.php
+      The example component class extends the abstract class, which as I explained
+      functions as a class ‘template’. As a property, I have added the text key in
+      ‘props’ which allows adding some text. And that’s it! The rest is already defined
+      by our abstract component class
