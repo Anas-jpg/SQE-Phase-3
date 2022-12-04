@@ -1,1 +1,28 @@
+WordPress Coding Standards exist for PHP, HTML, CSS and Javascript. Thankfully we can setup Linters for pretty much all of these
+SO for Setting Linters for PHP
+
+SO Following are the steps:
+
+1. Setup PHP
+2. Setup PEAR
+      There’s a few ways to install some of the addons for PHP that we’ll be using for our PHP linter, but I’ve found the most
+      reliable method on macOS is to use good ‘ol PEAR.
+3. Install PHP_CodeSniffer
+      PHP_CodeSniffer is the workhorse for our PHP Linting setup. It’s actually 2 separate scripts.
+      • phpcs – detects violations of a defined coding standard
+      •	phpcbf – automatically fixes coding standard violations
+        Both are vital, indispensable tools you’ll be using all day, every day. We install both via PEAR:
+
+4. Install the WordPress Coding Standards Sniffs
+        Sniffs’ are basically coding standards config rules for phpcs. Thankfully there is a wonderful set of sniffs available
+        for the WordPress PHP Coding Standards. To install these, I recommend the Standalone installation method.
+        Create a directory somewhere safe on your machine like ~/DEV/WPDEV/ and open a terminal session from inside that directory.
+5. Configure phpcs to use the WordPress Coding Standards sniffs
+6. Install SublimeLinter
+        SublimeLinter is going to be the framework via which many of our linters will run. Go ahead and install Sublime Linter via Package Control.
+7. Install sublime-phpcs
+        While sublime-phpcs has been deprecated it still works perfectly fine me. If you wish, you can install SublimeLinter-phpcs as an alternative. (I have both installed).
+        Use Sublime Text’s Package Control (Preferences -> Package Control -> Install Package -> phpcs) to install this plugin.
+8  Configure sublime-phpcs
+9  Configure .editorconfig
 
