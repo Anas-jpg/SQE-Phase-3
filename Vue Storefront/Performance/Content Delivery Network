@@ -1,1 +1,16 @@
+What is CDN?
+CDN, which stands for Content Delivery Network, delivers content by caching servers placed across the entire globe. It is designed to cut the page loading time 
+by serving content from the server placed in the client’s physical proximity.
+A CDN allows for the quick transfer of assets needed for loading Internet content including HTML pages, javascript files, stylesheets, images, and videos.
+The popularity of CDN services continues to grow, and today the majority of web traffic is served through CDNs, including traffic from major sites like 
+Facebook, Netflix, and Amazon.
 
+Fastest CDN Vue Storefront:
+To improve site performance, Google Cloud CDN supports modern protocols initially developed at Google, like HTTP/2 and QUIC. Thanks to them, Google Cloud CDN 
+enables websites to serve millions of requests per day seamlessly, taking care of delivering superb user experience across all touchpoints.
+
+How CDN Works?
+A CDN is a network of servers that distributes content from an “origin” server throughout the world by caching content close to where each end user is accessing 
+the internet via a web-enabled device. The content they request is first stored on the origin server and is then replicated and stored elsewhere as needed. By caching
+content physically close to where a user is and reducing the distance it has to travel, latency is reduced. This process also decreases stress on origin servers by 
+distributing the load geographically across multiple servers.
