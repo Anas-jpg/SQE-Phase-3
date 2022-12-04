@@ -1,1 +1,64 @@
+Have you ever used a plugin and wished it did something a bit differently? Perhaps you needed something unique that was beyond the scope of the settings page 
+of the plugin. If you're a WordPress plugin developer, most likely some of your users have  also encountered this while using your plugin.
+Here's a typical scenario: You've finally found that plugin that does everything you need — except for one tiny
+important thing. There is no setting or option to enable that tiny thing, so you browse the documentation and find that you can't do anything about it.
+You request the feature in the WordPress plugin's support forum — but no dice. In the end, you uninstall it and continue your search.
+
+common scenerio of Plugin:
+
+function get_some_post_titles() {
+  $args = array(
+      'posts_per_page' => 3,
+  );
+
+  $posts = get_posts( $args );
+
+  $output = '';
+  foreach ( $posts as $post ) {
+      $output .= '' . $post->post_title . '';
+  }
+  $output .= '';
+
+  return $output;
+}
+
+
+
+We'd make the plugin extensible
+
+By studying the plugin's code above, we see a few operations that the main function performs:
+•	It gets posts using get_posts.
+•	It generates a list of post titles.
+•	It returns the generated list.
+
+Rules of Thumb
+•	add myplugin_get_posts_args for modifying the arguments of get_posts,
+•	add myplugin_get_posts for overriding the results of get_posts,
+•	add myplugin_list_item for customizing the generation of a list entry,
+•	add myplugin_get_some_post_titles for overriding the returned generated list.
+
+Example of Extensible plugin WITH Extensibility:
+
+function get_some_post_titles() {
+  $args = array(
+      'posts_per_page' => 3,
+  );
+
+  // Let other people modify the arguments.
+  $posts = get_posts( apply_filters( 'myplugin_get_posts_args', $args ) );
+
+  // Let other people modify the post array, which will be used for display.
+  $posts = apply_filters( 'myplugin_get_posts', $posts, $args );
+
+  $output = '';
+  foreach ( $posts as $post ) {
+
+      // Let other people modify the list entry.
+      $output .= '' . apply_filters( 'myplugin_list_item', $post->post_title, $post ) . '';
+  }
+  $output .= '';
+
+  // Let other people modify our output list.
+  return apply_filters( 'myplugin_get_some_post_titles', $output, $args );
+}
 
