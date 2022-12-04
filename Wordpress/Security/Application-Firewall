@@ -1,1 +1,8 @@
+A firewall security is a network security application that monitors and filters incoming and outgoing network traffic (IP Address).
+A firewall security, is a barrier that sits between a private internal network and the public Internet.FEATURE-RICH, EASY TO USE, STABLE, 
+SECURE AND WELL SUPPORTED WORDPRESS FIREWALL SECURITY PLUGIN Firewall reduces security risk by checking for vulnerabilities, 
+and by implementing and enforcing the latest recommended WordPress security practices and techniques.
+FREE PLUGIN FEATURE 
+
+Plugin Level Waf: IPs blocked by admin will be blocked on WordPress site load. It is less secure than htaccess level WAF.
 
