@@ -1,1 +1,14 @@
+1.1	 This guideline has been issued by the Chief Information Officer to supplement the Vulnerability Management standard.
+     Compliance with this guideline is recommended, but not mandatory. Questions about this guideline may be referred to
+     information.security@ubc.ca.
 
+1.2  While it would be impossible to list all compliance regulations, the following are a few common ones to be aware of as a WordPress website owner
+      •	General Data Protection Regulation (GDPR)
+      •	Payment Card Industry Data Security Standard (PCI DSS)
+      •	ISO 27001
+      •	Health Insurance Portability & Accountability Act (HIPAA)
+1.3  PCI for WordPress & e-commerce sites
+        Since most WordPress sites use a third party payment gateway, the scope and requirements are lower. 
+        In fact most probably compliance can be achieved by completing the PCI Data Security Standard Self 
+        Assessment Questionnaire (SAQ). However you should still inform yourself  about the requirements,
+        so whenever you make changes you can determine what is required to remain compliant
