@@ -1,1 +1,29 @@
+SSR Output Cache:
+Vue Storefront supports a very efficient Server Side Rendering cache. In this mode, the generated HTML pages are fully stored in the Redis cache. The cache entries
+are then tagged with all the products, categories (and potentially other data entities) used to render that specific page.
+Let’s say the Category page contains 20 products products = [{id:120,…},{id:324,…},…] after this specific category page got rendered, Vue Storefront would tag the 
+output cache entry with the following tags: P120, P324. 
+Each time, Vue Storefront indexers (both: mage2vuestorefront and magento2-vsbridge-indexer) are pushing the changes for any of the tagged product to Elastic storage,
+the indexer is calling an URL like: https://your-istace.com/ivalidate?tags=P120. This request invalidates cache, assigned to this specific product. There is no risk
+the user will get any outdated product information.
+Typical cached requests take about 2–50ms to execute — compared to about 100ms for non-cached ones.
+When you’re dealing with a memory-leak, the SSR cache can be very helpful. Maybe not eliminate the leak but rather to … live with it. By just limiting the memory
+usage as the number of dynamic requests processed by Vue.js got significantly lower with cache on.
 
+How it works? 
+When the page is requested, the cache driver checks if there is an already rendered page in the cache matching the current route. If the rendered page exists, 
+the cache driver will serve the cached version. Otherwise, the current page will be rendered on the server and served to the user, but if it contains tags, 
+the result will be saved in the cache and used for subsequent requests.
+
+API Output Cache:
+Although the SSR cache is pretty cool — even when it’s enabled, the cache hit ratio still would be pretty low. It’s because most of the requests are executed in 
+CSR (client-side mode), querying the API directly from the client's browser. If you’re facing any Elastic performance issues or it’s high on resources that you’d 
+like to limit— it’s a time to introduce the API output cache.
+It is recommended to put an nginx or varnish proxy in front of vue-storefront-api. With such a proxy, adding the API cache is pretty easy.
+
+Dynamic API output caching:
+From the Vue Storefront 1.11 (currently, experimental release) there will be an option to use Dynamic output catching. With this model on the output cache from 
+the API will be tagged with dynamic tags corresponding to all the products and categories which are included in the search results.
+If the product with ID = 123 exists on the results page API will tag the output with a P123 tag. All of our official indexers magento*-vsbridge-indexer and 
+mage2vuestorefront do support the dynamic cache invalidation. This means that the output cache will be invalidated page by page whatever any product stock 
+or category information changed.
