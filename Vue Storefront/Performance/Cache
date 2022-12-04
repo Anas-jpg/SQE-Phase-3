@@ -27,3 +27,16 @@ the API will be tagged with dynamic tags corresponding to all the products and c
 If the product with ID = 123 exists on the results page API will tag the output with a P123 tag. All of our official indexers magento*-vsbridge-indexer and 
 mage2vuestorefront do support the dynamic cache invalidation. This means that the output cache will be invalidated page by page whatever any product stock 
 or category information changed.
+
+Why we need tags? 
+When at least one tag associated with the given page is invalidated, the whole page is removed from the cache and will be rendered from scratch on the 
+next request. For example, if one of the products is modified or disabled, we should invalidate cache for pages where this product is visible:
+
+1) Product page for this particular product.
+2) Other product pages where this product is listed (upsell or cross-sell).
+3) Homepage, if the product is displayed in the carousel or listed as a popular item.
+4) Category page, where this product is listed.
+5) Search page where this product is part of the results.
+
+Additionally, all modifiers changing what is displayed on the page, such as pagination, filtering, and sorting options, should be added as URL queries
+(for example, ?sort=price-up&size=36&page=3). This will cause different modifier combinations to be treated as different routes, and thus, cached separately.
