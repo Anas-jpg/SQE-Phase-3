@@ -1,0 +1,21 @@
+What is scalability:
+Scalability is the measure of a system's ability to increase or decrease in performance and cost in response to changes in application and system processing demands.
+Production-ready setup:
+To reduce the number of hours needed to go live with a fully working e-store, it delivers the entire cloud infrastructure ready-to-implement. All we need to do is to clone the delivered repository and customize it, making your time-to-market significantly shorter.
+Scalability:
+Cloud-native infrastructure enables to handle of dynamic traffic peaks by automatically adding or removing resources. This model leaves merchants confident that their web shops always meet current demands in terms of organic traffic.
+Scalability is also fully managed. That's true both for computing and storage scalability. When your Serverless based eCommerce gains attention, you don't have to manually add any resources to your Lambda functions - AWS will automatically increase the number of concurrently running functions for you. You also don't need to bother yourself with over-provisioning Databases - in Serverless, you don't have to decide upfront about your storage capacity - if you use more of it, you just pay more.
+Automatic backups:
+The Support team of the company provides daily backups, which makes testing new solutions safely. We can freely reach out for the newest solutions, battle-test them, and then decide if you want to keep or remove them. Daily backups are delivered by default making your business consistency perfectly secured.
+Multi regions:
+With multi-region deployment models provided by Google Cloud Platform, you can lower the latency factor by choosing regions close to the users. It enables you to serve content faster to the user from the nearest area, and - as we all know - performance is the foundation of conversion.
+Automatic deployments:
+The deployment is managed via storefront cloud-CLI and the GitLab repository. They are using a fully automatic deployment flow with the evidence of changes and a simple restore process in case of any failure.
+CLI access:
+The platform is accessible and manageable via the storefront cloud-CLI tool. It’s a dedicated tool to manage the Kubernetes cluster and Vue Storefront deployments, backups, and logs.
+Access via API:
+Our API-first attitude is not limited to the software architecture. All Vue Storefront Cloud config options are available via API as well.
+DDoS Protection & GEO-Fencing:
+It provides you with complete geofencing and DDoS protection by giving you full control over which country your store is available in.
+
+
