@@ -1,0 +1,37 @@
+ Introduction:
+
+The V8 JavaScript engine in Google Chrome serves as the foundation for the JavaScript-based Node.js platform, which is primarily used to create I/O-demanding online applications like chat programmes and multimedia streaming websites.
+Node.js server architecture:Node.js can handle several concurrent clients thanks to its "Single Threaded Event Loop" design. Both the event-based approach and the JavaScript callback mechanism are utilised by the Node.js Processing Approach. A client sends a request from the front-end, which is then processed in one of two ways depending on the type of request, before the client receives the response, if we were to talk about the workflow existentially.
+
+The components of Node.js includes:
+  1)  Requests
+  2)  Node.js Sever
+  3)  Event Queue
+  4)  Thread Pool
+  5)  Event Loop
+  6)  External Resources
+
+Components Explanation:
+
+REQUESTS: Requests to the server can be classified as blocking or non-blocking depending on the actions that a user needs to take. 
+Node.js SERVER: The Node.js server accepts client requests, handles them appropriately, and then sends the client a response. 
+EVENT QUEUE: The primary function of the event queue is to hold incoming client requests and send each one individually to the event loop.
+THREAD POOL: The threads that are available to perform activities necessary to process requests, like blocking that requires external resources, are found in a Node.js server's thread pool.
+EVENT LOOP: The Event Queue transmits requests to Event Loop, which then provides responses to the customers. 
+EXTERNAL RESOURCES: External resources are employed to deal with client requests that are blocked. They could be any kind (computation, storage, etc.).
+  
+
+ 
+Step by Step Procedure:
+
+1) Users ask the server to conduct activities by sending it requests (blocking or not).
+
+2) At the server-side, the requests first appear in the Event Queue.
+
+3) The event queue sends the requests to the event loop in a sequential order. The event loop examines the request's type (blocking or non-blocking).
+
+4) Event Loop processes non-blocking requests that don't need outside resources and sends the results to the appropriate clients.
+
+5) A single thread is assigned to the process for blocking requests to use external resources to complete the task.
+
+6) The request is forwarded to the Event Loop after the procedure is finished, which returns the response to the client. 
