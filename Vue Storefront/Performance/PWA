@@ -1,1 +1,8 @@
+What is PWA?
 
+Progressive Web Application (PWA) is a type of web app that can operate both as a web page and mobile app on any device. It is a great solution for poor mobile UX and 
+low conversion rates in your online store. Using standard technologies, PWA is aimed at delivering native-like user experience, with speedier conversion and cleaner 
+browsing even with a poor Internet connection. 
+
+PWAs are written in JavaScript, CSS, and HTML. They look and behave just like regular web pages (which means they are searchable in internet browsers). However, they 
+also deliver functionalities identical to those provided by mobile apps: they are fast, can work offline, send push notifications, and use the features of user devices.
