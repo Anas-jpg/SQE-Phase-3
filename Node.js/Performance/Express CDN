@@ -1,3 +1,5 @@
+Express-cdn is used to construct the content delivery network so that users can access data quickly.
+
 Installation:
 Simply run "npm install express-cdn" in your terminal to install this module; it will then be added to your npm package. 
 
@@ -53,4 +55,3 @@ app.get('/', function(req, res, next) {
 
 console.log("Server started: http://localhost:1337");
 app.listen(1337);
-   
