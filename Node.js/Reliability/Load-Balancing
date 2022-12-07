@@ -1,0 +1,151 @@
+Load Balancing:
+
+In front of your application servers, a load balancer serves as the traffic cop, distributing client requests across all servers equipped to handle them in a way that maximises speed and capacity utilisation and makes sure that no server is overworked, which could lead to performance degradation.
+The server can typically handle 2000 requests when 500 connections are active at once for 10 seconds. There are 190.1 requests per second on average.
+
+The following techniques are used in NodeJS to achieve load balancing: 
+
+Using Cluster Module:
+In order to utilize a multi-core system, NodeJS comes with a built-in module called Cluster Module. You can start NodeJS instances in each system core by using this module.
+Master process listening on a port to take client requests and intelligently distribute throughout the worker processes So, by using this module, you may make use of your system's functionality.  
+
+Without Cluster Module:
+Make sure you have installed the express and crypto module using the following command:
+
+npm install express crypto
+
+Enabling Cluster Module:
+
+					`const express = require('express');
+					const cluster = require('cluster');
+					const { generateKeyPair } = require('crypto');
+
+					// Check the number of available CPU.
+					const numCPUs = require('os').cpus().length;
+
+					const app = express();
+					const PORT = 3000;
+
+					// For Master process
+					if (cluster.isMaster) {
+					  console.log(`Master ${process.pid} is running`);
+
+					  // Fork workers.
+					  for (let i = 0; i < numCPUs; i++) {
+					    cluster.fork();
+					  }
+
+					  // This event is firs when worker died
+					  cluster.on('exit', (worker, code, signal) => {
+					    console.log(`worker ${worker.process.pid} died`);
+					  });
+					}
+
+					// For Worker
+					else {
+					  // Workers can share any TCP connection
+					  // In this case it is an HTTP server
+					  app.listen(PORT, err => {
+					    err ?
+					      console.log("Error in server setup") :
+					      console.log(`Worker ${process.pid} started`);
+					  });
+
+					  // API endpoint
+					  // Send public key
+					  app.get('/key', (req, res) => {
+					    generateKeyPair('rsa', {
+					      modulusLength: 2048,
+					      publicKeyEncoding: {
+						type: 'spki',
+						format: 'pem'
+					      },
+					      privateKeyEncoding: {
+						type: 'pkcs8',
+						format: 'pem',
+						cipher: 'aes-256-cbc',
+						passphrase: 'top secret'
+					      }
+					    }, (err, publicKey, privateKey) => {
+
+					      // Handle errors and use the
+					      // generated key pair.
+					      res.send(publicKey);
+					    })
+					  })
+					}`
+
+
+Run:
+Now run the file by typing `node index.js` in the terminal.
+
+
+Output:
+We will see the following output on the terminal screen:
+
+				    " Master 16916 is running
+					Worker 6504 started
+					Worker 14824 started
+					Worker 20868 started
+					Worker 12312 started
+					Worker 9968 started
+					Worker 16544 started
+					Worker 8676 started
+					Worker 11064 started "
+
+Now, the server can handle 5000 requests while 500 connections are active at once for 10 seconds. There are 162.06 seconds between requests on average. You may handle more requests by using the cluster module.However, there are situations when it is insufficient, in which case horizontal scaling is a possibility. 
+
+
+Using Nginx:
+Use Nginx as a proxy server wisely if your system has multiple application servers to react to and you need to split client requests among all servers.
+Your server pool's front server, Nginx, is where requests are distributed in an intelligent way.
+
+
+The same NodeJS application is running in four separate instances on different ports in the example below. A different server may be used as well. The file is called index.js. 
+
+Index.js:
+
+					`const app = require('express')();
+
+					// API endpoint
+					app.get('/', (req,res)=>{
+					    res.send("Welcome to GeeksforGeeks !");
+					})
+
+					// Launching application on several ports
+					app.listen(3000);
+					app.listen(3001);
+					app.listen(3002);
+					app.listen(3003);`
+
+
+
+Using Nginx:
+									
+Install Nginx on your machine and create a new file in /etc/nginx/conf.d/ called your-domain.com.conf with the following code in it. 
+
+					`upstream my_http_servers {
+					    # httpServer1 listens to port 3000
+					    server 127.0.0.1:3000;
+
+					    # httpServer2 listens to port 3001
+					    server 127.0.0.1:3001;
+
+					    # httpServer3 listens to port 3002
+					    server 127.0.0.1:3002;
+
+					    # httpServer4 listens to port 3003
+					    server 127.0.0.1:3003;
+					}
+					server {
+					    listen 80;
+					    server_name your-domain.com www.your-domain.com;
+					    location / {
+						proxy_set_header   X-Real-IP $remote_addr;
+						proxy_set_header   Host      $http_host;
+						proxy_pass         http://my_http_servers;
+					    }
+					}`
+
+
+
