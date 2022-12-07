@@ -1,1 +1,18 @@
+React slow loading has several advantages, including:
 
+
+1. Quicker initial loading: React lazy loading helps lighten the website load time by reducing the page weight.
+
+
+2. Improved User Experience: An application's user experience is enhanced by react lazy loading.
+Effective user experience (UX) aids in both customer retention and revenue growth.
+
+
+3. Less data and internet use thanks to react slow loading images.
+Users who don't have access to fast internet or large data plans will find this to be especially helpful.
+
+
+4.Système resource preservation: lazy loading
+By just requesting a small portion of components, React components save server and client resources.
+
+5. Less work for the browser: When using React slow loading, images are not downloaded by the browser until a user scrolls to that area of the page.
