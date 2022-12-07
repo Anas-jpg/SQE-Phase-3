@@ -1,0 +1,78 @@
+This document includes a step-by-step tutorial for deploying a NodeJS application to Google Cloud.
+
+
+1) Open your Google Cloud account and log in.
+Make an account if you're new to Google Cloud.
+New customers also get $300 in free credits to run, test, and deploy workloads. 
+
+2) Select or create a Google Cloud project in the Google Cloud console's project selector page.
+
+
+3) Download, set up, and launch the Google Cloud CLI (Billing and Installation, etc).  
+
+To set the default project for your Cloud Run service:
+    " gcloud config set project PROJECT_ID "
+
+Replace PROJECT_ID with the name of the project you created for this quickstart.
+    
+4) Write the sample application:-
+    To write an application in Node.js:
+
+    a) Create a new directory named helloworld and change directory into it:
+            " mkdir helloworld "
+            " cd helloworld "
+
+    b) Make a package.json file and fill it with the following information: 
+
+      `{
+        "name": "helloworld",
+        "description": "Simple hello world sample in Node",
+        "version": "1.0.0",
+        "private": true,
+        "main": "index.js",
+        "scripts": {
+          "start": "node index.js"
+        },
+        "engines": {
+          "node": ">=12.0.0"
+        },
+        "author": "Google LLC",
+        "license": "Apache-2.0",
+        "dependencies": {
+          "express": "^4.17.1"
+        }
+      }
+
+
+    c) Create a file called index.js in the same directory, and paste the lines below into it: 
+      `run/helloworld/index.jsView on GitHub Feedback`
+  
+      `const express = require('express');
+       const app = express();
+
+      app.get('/', (req, res) => {
+        const name = process.env.NAME || 'World';
+        res.send(`Hello ${name}!`);
+      });
+
+      const port = parseInt(process.env.PORT) || 8080;
+      app.listen(port, () => {
+        console.log(`helloworld: listening on port ${port}`);
+      });
+
+
+A simple web server is created by this code, and it listens on the port specified by the PORT environment variable.
+
+
+Your app is complete and prepared for distribution. 
+
+5) Deploy to Cloud Run from source:
+
+    a) To deploy from the source. In your source code directory, deploy from source using the following command:
+        " gcloud run deploy "
+
+    b) Visit your deployed service by opening the service URL in a web browser.
+        
+And Now the application is deployed on Google Cloud.
+
+
