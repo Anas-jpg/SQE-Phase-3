@@ -1,1 +1,74 @@
+Service Worker:
 
+A JavaScript piece of code known as a service worker manages the cache for any assets and data you decide to keep for upcoming requests.
+
+
+To make it work as a service worker, you must abide by the following rules: 
+
+
+- It only works with valid HTTPS or http://localhost
+- It only grabs requests within its scope
+- It only has access to the files in its folder or “below”
+
+
+Node.JS PWAs only work over HTTPS since the service worker can access and use the response. The service provider can receive and manage network requests, maintain 
+the cache to enable offline functionality, and provide push notifications to your clients. Service employees offer much more precise control, which makes them 
+flexible and suitable for a variety of use cases. Service workers do not obstruct the main JavaScript application code because they operate on a different thread.
+
+Offline Experience:
+
+For online applications, service workers can be leveraged to create offline experiences. Because they provide you with low-level granular control over intercepting 
+and altering requests and caching resources, they stand out in this aspect.  
+
+
+
+Background Synchronization:
+
+
+Service workers also provide a background sync API since they want to improve offline experiences. This function enables the synchronization of web material without 
+interfering with the user's experience. For instance, if a user submits a form while using a shaky connection, form data may be stored for background syncing. Once 
+the connection has stabilised, the service worker can then sync the form data with the server in the background. 
+
+
+Service Worker.js:
+
+
+              `const CACHE = 'cat-image-cache'
+
+              // Add content to the cache when the service worker is installed.
+              self.addEventListener('install', (event) => {
+                  event.waitUntil(caches.open(CACHE).then((cache) => {
+                      cache.addAll(['./img']);
+                  }));
+              });
+
+              // Intercept fetch requests.
+              self.addEventListener('fetch', (event) => {
+                  // First, satisfy the request with cached content.
+                  event.respondWith(fetchFromCache(event.request));
+
+                  // Then, update the cache.
+                  event.waitUntil(updateCache(event.request));
+              });
+
+              // Fetches the requested content from the cache.
+              function fetchFromCache(request) {
+                  return caches.match(request).then((matching) => {
+                      if (matching) {
+                          return matching;
+                      }
+
+                      return fetch(request);
+                  });
+              }
+
+              // Updates the cache from the server.
+              function updateCache(request) {
+                  return caches.open(CACHE).then((cache) => {
+                      return fetch(request).then((response) => {
+                          return cache.put(request, response.clone()).then(() => {
+                              return response;
+                          });
+                      });
+                  });
+              }`
