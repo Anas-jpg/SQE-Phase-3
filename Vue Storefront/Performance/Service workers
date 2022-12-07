@@ -1,5 +1,28 @@
-Before the 1.11 release, we were using LocalStorage or IndexedDB to cache the products and categories for the offline mode purposes. It was because, not all the browsers
-(iOS) were supporting Service Workers. However, it got changed! From 1.11 we’re using solely Service Workers.
+Service workers:
+
+This is one of the key elements of PWA technology, which helps to determine how to handle network requests. 
+A service worker is a client-side JavaScript file added to your codebase, which is working in the background to mimic app-like features.
+
+Before the 1.11 release, LocalStorage or IndexedDB was used to cache the products and categories for the offline mode purposes. It was because, not all the browsers
+(iOS) were supporting Service Workers. However, it got changed! From 1.11 solely Service Workers were started to use.
 
 The Service Workers cache works like we’re always executing the backend requests to invalidate the local cache. It’s the NetworkFirst mode. That means there is virtually
 no risk of stale / non-invalidated data served from the local cache.
+
+The service worker added with this plugin is only enabled in the production environment (e.g. only if you run npm run build or yarn build). Enabling service worker in a
+development mode is not a recommended practice, because it can lead to the situation when previously cached assets are used and the latest local changes are not included.
+
+Instead, in the development mode the noopServiceWorker.js is included. This service worker file is effectively a 'no-op' that will reset any previous service worker 
+registered for the same host:port combination.
+
+Configuration:
+
+Configuration is handled via the pwa property of either the vue.config.js file, or the "vue" field in package.json.
+
+pwa.workboxPluginMode:
+
+This allows you to choose between the two modes supported by the underlying workbox-webpack-plugin.
+
+1) 'GenerateSW' (default), will lead to a new service worker file being created each time you rebuild your web app.
+
+2) 'InjectManifest' allows you to start with an existing service worker file, and creates a copy of that file with a "precache manifest" injected into it.
