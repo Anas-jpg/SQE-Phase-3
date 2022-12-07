@@ -1,0 +1,29 @@
+Overview:
+Wrap a single child with this component to make it auto-scale (transform) to fit its parent (or a maximum size specified through props).
+React's versions 0.14 onwards support auto-scaling.
+
+
+Installation Procedure:
+
+To install react auto-scaling, use the following command:
+npm install --save react-auto-scale
+
+Usage :
+myContent will scale to fit inside .myContainer.
+
+
+//Code
+import React, { Component } from 'react';
+import AutoScale from 'react-auto-scale';
+ 
+export default class MyComponent extends Component {
+  render() {
+    return (
+      <div className="myContainer">
+        <AutoScale>
+          <div className="myContent">Example</div>
+        </AutoScale>
+      </div>
+    );
+  }
+}
