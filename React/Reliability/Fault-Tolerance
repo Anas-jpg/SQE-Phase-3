@@ -1,0 +1,15 @@
+Fault tolerance:
+A system's ability to maintain correct operation in the event that any (or multiple) of its components fail is known as fault tolerance. It is still not possible to write code that is 100% error-free; there is always a 0.1% chance that an error will occur.
+
+React leverages error boundaries to achieve fault tolerance. The API can now only be found in class components and looks somewhat like this:
+
+
+componentDidCatch(error) {
+
+  this.setState({ error, showFallback: true });
+} 
+
+  // When this gets called, you know an error has occurred!
+  // Hurray for fault detection!
+  // We can now do things like call setState to render a fallback
+  // UI so that our users know an error has occurred.
