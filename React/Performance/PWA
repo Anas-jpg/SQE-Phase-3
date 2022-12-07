@@ -1,1 +1,13 @@
+PWA is used by React JS to provide a better user experience because it has the following advantages:
 
+1.Speed: PWA-powered websites load pages more quickly than regular websites.
+Since all web pages are cached, it takes less time for consumers to load the website when they return.
+
+
+2. Widely compatible: PWA is compatible with practically all browsers and operating systems.
+
+
+3. Offline working mode: Users can view website content with or without an internet connection because data is pre-cached.
+
+
+4.SEO-friendly: PWA can assist websites in obtaining a high Google Core Web Vitals score, increasing traffic and client retention. 
