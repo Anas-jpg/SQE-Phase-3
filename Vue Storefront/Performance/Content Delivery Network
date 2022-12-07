@@ -1,15 +1,27 @@
 What is CDN?
-CDN, which stands for Content Delivery Network, delivers content by caching servers placed across the entire globe. It is designed to cut the page loading time 
-by serving content from the server placed in the client’s physical proximity.
+
+CDN, which stands for Content Delivery Network, refers to a geographically distributed group of servers which work together to provide fast delivery of Internet content.
+CDN delivers content by caching servers placed across the entire globe. It is designed to cut the page loading time by serving content from the server placed in the 
+client’s physical proximity.
 A CDN allows for the quick transfer of assets needed for loading Internet content including HTML pages, javascript files, stylesheets, images, and videos.
 The popularity of CDN services continues to grow, and today the majority of web traffic is served through CDNs, including traffic from major sites like 
 Facebook, Netflix, and Amazon.
 
 Fastest CDN Vue Storefront:
+
 To improve site performance, Google Cloud CDN supports modern protocols initially developed at Google, like HTTP/2 and QUIC. Thanks to them, Google Cloud CDN 
 enables websites to serve millions of requests per day seamlessly, taking care of delivering superb user experience across all touchpoints.
 
+For prototyping or learning purposes, you can use the latest version with:
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+
+For production, it is recommended linking to a specific version number and build to avoid unexpected breakage from newer versions:
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
+
 How CDN Works?
+
 A CDN is a network of servers that distributes content from an “origin” server throughout the world by caching content close to where each end user is accessing 
 the internet via a web-enabled device. The content they request is first stored on the origin server and is then replicated and stored elsewhere as needed. By caching
 content physically close to where a user is and reducing the distance it has to travel, latency is reduced. This process also decreases stress on origin servers by 
