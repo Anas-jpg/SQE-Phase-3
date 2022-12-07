@@ -6,3 +6,7 @@ browsing even with a poor Internet connection.
 
 PWAs are written in JavaScript, CSS, and HTML. They look and behave just like regular web pages (which means they are searchable in internet browsers). However, they 
 also deliver functionalities identical to those provided by mobile apps: they are fast, can work offline, send push notifications, and use the features of user devices.
+
+For existing projects, you can run the vue add command to install the PWA plugin for Vue.
+
+vue add pwa
