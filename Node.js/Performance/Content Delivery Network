@@ -1,1 +1,41 @@
+Content Delievery Netork:
+A dispersed group of proxy servers set up across many data centres and used for online delivery of content is known as a content delivery network (CDN). By 
+utilising methods like web caching, load balancing, and request routing, a CDN aims to give end users excellent availability and performance.
 
+
+Usage of CDN:
+Expressjs, one of Node.js's frameworks, facilitates the use of CDNs in Node.js applications. Express-CDN is a Node.js module used to distribute assets that have 
+been optimised, minified, mangled, gzipped, and hosted by a CDN (currently by Amazon S3 and Amazon CloudFront). 
+
+
+
+Featurs of Express-CDN:
+
+
+1) Automatic url(absoluteUrl) parsing of background, background-image, and content in stylesheets and scripts.
+
+2) Using OptiPNG and JPEGTran binaries from NPM, built-in image optimization is available in production mode.
+
+3) Utilizes the appropriate CSS compilers to support Sass, LESS, and Stylus.
+
+4) UglifyJS is used to mutilate and minify JavaScript assets.
+
+5) Automatic asset change detection; only updated assets will be uploaded to S3 in production mode.
+
+6) Makes use of express-cachebuster and h5bp-inspired cachebusting.
+
+7) The Content-Encoding header is set to gzip and all assets are compressed using zlib into a gzip buffer for S3 uploading.
+
+8) Use several assets in a single embed 
+
+9) Processes and loads assets for each view (allowing you to minimise client HTTP requests).
+
+10) Use an easy array argument to group together frequently used resources.
+
+
+
+Working of Express-CDN:
+
+Depending on the server settings, the module returns a view helper when the server first starts up (production or development). Additionally, it recursively looks
+through your viewsDir for any views that contain CDN instances. It will utilise your S3 login information to upload a fresh copy of the production-quality assets after
+parsing each instance and eliminating duplicates. 
