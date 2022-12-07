@@ -1,1 +1,40 @@
+Cache in Node.js:
 
+A backend system (in our instance, Node. js) and, often, a regular database are all components of caching, which is essentially an abstraction layer. The 'node-cache'
+framework is used to implement caching in NodeJs. 
+
+Node-cache:
+
+A straightforward caching module that functions much like memcached and contains set, get, and delete methods. A timeout (ttl) is a period of time after which a key 
+expires and is removed from the cache. Since every key is kept in a single object, the practical cap is somewhere around 1 million keys.
+
+
+Install:
+
+	`npm install node-cache --save`
+	
+	
+Initialization:
+
+	`const NodeCache = require( "node-cache" );
+	const myCache = new NodeCache();`
+	
+Store a key set:
+								
+Basically the cache are stored in key value formate using sets. The general format is: `myCache.set(key, value);`
+
+	`obj = { my: "Special", variable: 42 };
+
+	success = myCache.set( "myKey", obj, 10000 );
+	// true`
+
+Retrieve a key set:
+								
+Basically the cache are retrived  using key. The general format is: `myCache.get( key );`
+
+	`value = myCache.get( "myKey" );
+	if ( value == undefined ){
+		// handle miss!
+	}
+	// { my: "Special", variable: 42 }`
+ 
