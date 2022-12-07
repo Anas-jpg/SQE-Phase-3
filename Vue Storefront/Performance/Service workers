@@ -1,1 +1,5 @@
+Before the 1.11 release, we were using LocalStorage or IndexedDB to cache the products and categories for the offline mode purposes. It was because, not all the browsers
+(iOS) were supporting Service Workers. However, it got changed! From 1.11 we’re using solely Service Workers.
 
+The Service Workers cache works like we’re always executing the backend requests to invalidate the local cache. It’s the NetworkFirst mode. That means there is virtually
+no risk of stale / non-invalidated data served from the local cache.
