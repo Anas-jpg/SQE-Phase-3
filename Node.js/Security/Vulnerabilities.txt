@@ -1,0 +1,14 @@
+Example:
+
+Improper Certificate Validation (CWE-295):
+Subject Alternative Names (SANs) in certificates used to connect to a TLS/SSL endpoint can be validated using APIs that Node.js offers. A vulnerability exists if certificates can be constructed to undergo erroneous validation by the Node.js APIs.
+
+Inconsistent Interpretation of HTTP Requests (CWE-444):
+In order to accept http connections, Node.js offers APIs. These APIs analyse the connection headers received and send them to the application. Vulnerabilities are errors in the parsing of headers that can lead to request smuggling.  
+
+Missing Cryptographic Step (CWE-325):
+In Node.js, data encryption APIs are available. Vulnerabilities are errors that would enable an attacker to obtain the original data without needing the decryption key. 
+
+
+External Control of System or Configuration Setting (CWE-15):
+A vulnerability exists when Node.js automatically loads an undocumented configuration file and any changes to that configuration have the potential to compromise the confidentiality of data protected by the Node.js APIs. 

@@ -1,0 +1,28 @@
+Two types of tools are used to make NodeJS more secure, taking the security requirements into account. 
+
+Software Composition Analysis:
+
+Software Composition Analysis (SCA), also known as Open Source Software (OSS) analysis, is a type of tool that examines a product to determine which third-party libraries and components are used and their versions, and then provides a report outlining the known security flaws in each of those versions. 
+
+Static Application Security Testing:
+
+Tools for static application security testing (SAST) examine the source code to look for potentially dangerous codes. 
+
+Example SCA :  NPM AUDIT
+
+NPM version 6 adds the NPM audit command. The npm audit command requests a report of any known vulnerabilities and publishes a description of the dependencies set up in the project package to the default registry. And those are reported if any vulnerabilities are present. 
+
+
+Installation: By default, available after NPM version 6.
+Execute: `npm audit`
+Fixing: `npm audit fix` OR `npm audit fix -- force`
+
+Example SAST : EsLint
+EsLint is a very useful tool. It is a linter that enables you to examine source code and identify various issues. Eslint also enables us to design our own rules for examining packages and source code. There are numerous plugins available for various NodeJS frameworks, such as linters for the react. 
+
+Installation: `npm install eslint@5.16.0 --save-dev`
+Execute: 	`./node_modules/.bin/eslint .
+
+
+
+

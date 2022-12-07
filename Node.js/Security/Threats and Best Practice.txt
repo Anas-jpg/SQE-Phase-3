@@ -1,0 +1,39 @@
+This file lists potential threats to Node.js along with a potential countermeasure.
+
+Denial of Service of HTTP server (CWE-400):
+
+In this attack, the application's ability to function as intended is compromised by the way it handles incoming HTTP requests. A misconfigured or flawed client can potentially send a pattern of requests to the server that causes a denial of service. These requests do not necessarily need to be carefully prepared by a malicious actor.
+
+Mitigation:
+
+-> Receive and forward requests to the Node.js application using a reverse proxy. Reverse proxies can offer caching, load balancing, IP blacklisting, and other services that lessen the likelihood that a DoS assault will be successful.
+
+-> Set up the server timeouts properly to allow for the termination of connections that are inactive or experiencing excessively sluggish request processing. Check out the various timeouts in the http.Server, especially the headersTimeout, requestTimeout, timeout, and keepAliveTimeout.
+
+-> Limit the overall and per host amount of open sockets. Consult the http docs, paying special attention to server.maxRequestsPerSocket, agent.maxRequestsPerSocket, agent.maxTotalSockets, and agent.maxFreeSockets. 
+
+
+
+Exposure of Sensitive Information to an Unauthorized Actor (CWE-552):
+
+During the package publication, all of the files and directories found in the current directory are pushed to the npm registry. There are ways to manage this behaviour, such defining an allowlist in the package or a blocklist with.npmignore and.gitignore files. json 
+
+
+Mitigation:
+
+-> The crypto API exposes the timingSafeEqual function, which uses a constant-time technique to compare real and anticipated sensitive values.
+
+-> Scrypt, which is also included in the native crypto module, can be used for password comparison.
+
+-> Avoid utilising secrets in variable-time procedures generally. This includes using a secret as an index into memory and branching on secrets when the attacker may be present on the same infrastructure (for example, the same cloud computer).It's challenging to write constant-time JavaScript code (partly because of the JIT). Use the built-in crypto APIs or WebAssembly for crypto applications (for algorithms not implemented in natively). 
+
+Memory Access Violation (CWE-284):
+
+Attacks that use memory-based or heap-based techniques require both memory management issues and a vulnerable memory allocator. If your projects are running on a shared system, Node.js is susceptible to these attacks like other runtimes are. Pointer overruns and underruns can cause sensitive information to leak, therefore using a safe heap can help. 
+
+
+Mitigation:
+
+-> Depending on your application, use —secure-heap=n where n is the allotted maximum byte size.
+
+-> Never use a shared machine to run your production application. 
