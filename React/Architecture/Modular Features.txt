@@ -1,0 +1,7 @@
+Because React uses a modular structure, each feature file for the code is kept separate.
+
+
+This increases the maintainability and reusability of the code.
+
+
+For instance, the code in Homepage.js, which is a separate file, may be reused in any other project with only minor changes. 

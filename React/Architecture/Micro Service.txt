@@ -1,0 +1,20 @@
+For its front end, React uses a microservices architecture.
+
+
+There were various "projects" within the application.
+
+-
+
+A microservice is often an autonomous, deployable entity in backend development.
+
+-
+
+Microservices (npm packages) for each entity in a web or mobile application can also be created.
+This microservice will include all of the logic related to this entity.
+
+1. They have a state of their own.
+
+2. Only communicate with other components via interfaces, such as by creating an index.js file to only expose specific components to the outside world.
+
+3. Establish clear and binding contracts.
+You must define a component or function, the properties, and the object that will be returned. 

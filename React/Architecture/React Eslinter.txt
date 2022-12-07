@@ -1,0 +1,9 @@
+ESLint is the linter used by React.
+
+
+Lining up your code is a good habit because it enables you to find any potential issues.
+
+Linters help because React is an open source project and is prone to problems, especially when integrating.
+
+
+You can fully configure it to tell you things like: -if you imported something but never used it -if your function might be short-handed. 

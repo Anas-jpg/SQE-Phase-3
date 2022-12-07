@@ -1,0 +1,7 @@
+React differs from other JavaScript frameworks in that it does not compel you to utilise a predefined architectural pattern.
+
+
+React enables you to choose the organisation of your application on your own, in other words.
+
+
+The user has architectural freedom to use the components whichever best 

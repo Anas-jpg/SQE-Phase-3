@@ -1,0 +1,4 @@
+The code for React is kept and contributed to on Guthub, where it is correctly managed under several folders that are grouped into various branches but are directly integrated into main.
+
+
+The components are broken down into folders to keep them modular and reusable. 

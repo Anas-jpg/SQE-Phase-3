@@ -1,0 +1,7 @@
+Facebook is particularly concerned with security, thus it has a suitable protocol for reporting issues and bugs on all of its platforms.
+
+
+If you think you have discovered a security hole in React, you are encouraged to report it in accordance with the instructions.
+
+
+All credible reports are thoroughly examined in order to immediately address the issue. 

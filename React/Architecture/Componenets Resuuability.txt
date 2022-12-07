@@ -1,0 +1,6 @@
+React is renowned for the architectural flexibility it offers and is built using reusable components.
+
+
+In order to reuse code between different types of React components, a basic technology known as render properties is used.
+
+Instead of creating its own rendering logic, this function returns a React element and calls it. 
