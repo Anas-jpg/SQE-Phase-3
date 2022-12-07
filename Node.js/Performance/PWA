@@ -1,1 +1,82 @@
+Progressive Web Application:
+A website that functions and seems like a mobile app is known as a progressive web app (PWA). 
+
+PWA in node.js
+Nodejs offers the implementation of PWA in the manner described below to give users the experience of a mobile application: 
+
+1) We only require the following to establish the project's foundation: 
+
+	-> Node.js to run the server 
+	-> Express to run the HTTP server
+	-> Create a self-signed certificate using OpenSSL
+	-> Chrome to test the website and debug your PWA
+
+2) Creating a basic HTTP Server
+
+	: server.js
+			`const express = require('express')
+			const path = require('path')
+
+			const httpPort = 80
+
+			const app = express()
+
+			app.use(express.static(path.join(__dirname, 'public')))
+
+			app.get('/', function(req, res) {
+			  res.sendFile(path.join(__dirname, 'public/index.html'))
+			})
+
+			app.listen(httpPort, function () {
+			  console.log(`Listening on port ${httpPort}!`)
+			})
+			`
+	: index.html
+			`<html>
+			  <body>
+			    <span>This example is for the article of progressive web apps written for LogRocket</span>
+			    <br>
+			    <span>You are now</span> <span><b class="page-status">online</b></span>
+			    <script src="/js/pwa.js"></script>
+			  </body>
+			</html>
+			`
+	: pwa.js
+			`document.addEventListener('DOMContentLoaded', init, false);
+			function init() {
+			  console.log('empty for now')
+			}`
+	We must use our localhost to access our site in order to see this initial configuration. 
+
+
+
+3) Addition of a manifest file.
+
+By including a Node.JS manifest, the condition for installability as well as the empty landing screen will both be met.The web app manifest is a simple file that 
+provides information about your web app to the browser.It explains how it should function after being installed on the user's computer or mobile device. The Add to 
+Home Button cannot timely show without the web app manifest. 
+
+	: pwawebmanifest.js
+		`{
+		  "name": "Progressive Web App example",
+		  "short_name": "pwa-tutorial",
+		  "description": "Progressive Web App example to be used in conjuction with the article in LogRocket",
+		  "icons": [
+		    {
+		      "src": "/../images/splash-screen.png",
+		      "sizes": "512x512",
+		      "type": "image/png"
+		    }
+		  ],
+		  "start_url": "/",
+		  "display": "fullscreen",
+		  "theme_color": "#764ABC",
+		  "background_color": "#764ABC"
+		}`
+
+
+4) Optimization:
+
+Additional measures, such as those involving layout, content, and other factors, can be implemented to improve PWA. 
+
 
