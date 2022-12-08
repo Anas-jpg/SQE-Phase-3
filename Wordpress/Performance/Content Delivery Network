@@ -1,1 +1,36 @@
+Normally, your WordPress hosting company serves your website from a single location. All your website visitors access the same server.
 
+If you have a high traffic website, then all those user requests will slow down your website. During peak traffic hours, it can even crash the server which will make 
+your site temporarily unavailable.
+
+A study conducted by Strangeloop discovered, that a single second delay in website speed causes 11% less page views and 7% less conversions.
+
+This is where CDN comes in. CDN caches your server’s static resources like stylesheets, javascript, and images.
+
+When a user requests your website, all static resources are served through CDN servers. This reduces the load on your hosting server and makes it faster and more 
+efficient.
+
+Static content is served through a network of servers located in different geographical locations around the globe. Each user request is handled by a server closest to 
+the user’s location. This reduces the page load speed, and your website becomes noticeably faster for all users.
+
+Followig are some of top WordPress CDN services:
+
+1) Bunny.net:
+
+Bunny.net is the best WordPress CDN in the market. They have data centers across the world with very affordable pricing plans for small businesses and developers.
+
+Bunny is super easy to setup in WordPress. They have a their own WordPress plugin, or you can use it with other popular WordPress caching plugins such as WP Rocket and
+W3 Total cache.
+
+You can manage your CDN usage with a beginner friendly control panel. It allows you to purge cache, view reports, setup locations, and more. Bunny CDN also allows you 
+to add SSL certificate or use a shared SSL certificate to make sure that your cached content is served through SSL/HTTPS.
+
+2) Sucuri:
+
+Sucuri is a popular website security company. They offer a powerful WordPress firewall and CDN, which protects your website against DDOS attacks, malware, and other 
+WordPress security threats.
+
+Their website application firewall scans all user requests to your website before it reaches your hosting server. This blocks many spam, malware, and DDOS attacks.
+
+On top of that, their anycast network is spread across the globe so your users are never far away from the fastest servers. Their firewall has double benefits: speed
+and security.
