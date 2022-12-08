@@ -1,0 +1,18 @@
+Lazy loading your WordPress images can speed up your website and offer a better user experience.
+
+Images take the most time to load on your website compared to other web elements. If you add a lot of images to your articles, then each image increases your page load 
+time.One way to handle this situation is to use a CDN service, like BunnyCDN. A CDN will let a user download images from a web server closest to them and reduce website 
+loading speeds.However, your images will still be loaded and affect the overall page load time. To overcome this issue, you can delay image loading by implementing lazy 
+load on your website.
+
+How does lazy loading for images work?
+
+Instead of loading all your images at once, lazy loading downloads only the images visible on the user’s screen. It replaces all other images with a placeholder image or
+blank space.
+
+As a user scrolls down, your website loads images that are visible in the browser’s viewing area.
+
+he release of WordPress 5.5 added lazy loading as a default feature.
+
+WP Rocket plugin is recommeded to lazy load images in WordPress. It’s the best WordPress caching plugin in the market and lets you easily turn on image lazy loading.
+Aside from that, it’s a very powerful plugin that helps you optimize your website speed without knowing complex technical terms.
