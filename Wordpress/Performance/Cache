@@ -1,1 +1,14 @@
+WordPress caching is the fastest way to improve performance.
 
+When a page is rendered, php and mysql are used. Therefore, system needs RAM and CPU.
+If many visitors come to a site, system uses lots of RAM and CPU so page is rendered so slowly. In this case, you need a cache system not to render page again and again. 
+Cache system generates a static html file and saves. Other users reach to static html page.
+
+In addition, the site speed is used in Google’s search ranking algorithm so cache plugins that can improve your page load time will also improve your SEO ranking.
+
+Browser caching:
+
+Browser caching can help to reduce server load by reducing the number of requests per page. For example, by setting the correct file headers on files that don’t change
+(static files like images, CSS, JavaScript etc) browsers will then cache these files on your visitor’s computer. This technique allows the browser to check to see if 
+files have changed, instead of simply requesting them. The result is your web server can answer many more 304 responses, confirming that a file is unchanged, instead of
+200 responses, which require the file to be sent.
