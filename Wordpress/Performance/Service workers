@@ -1,1 +1,21 @@
+There are many reasons to add a service worker to WordPress: for example you may want to improve caching or add web push notifications. Let’s see how to do that.
 
+Registering a service worker manually:
+
+This is probably the easiest approach:
+
+function register_my_service_worker () {
+  echo "<script>navigator.serviceWorker.register('/service-worker.js')</script>";
+}
+add_action ( 'wp_head', 'register_my_service_worker' );
+
+Then you can create the service worker in the root directory of WordPress and add some contents to it. Some plugins, like the Pushpad plugin, currently use this strategy.
+This works great… unless multiple plugins or themes try to install a service worker: this will usually break the service worker registration and the plugins will not 
+work as expected. The problem is that, unlike normal scripts, there can be only one service worker per scope (basically a website can only have one main service worker 
+in the root directory).
+
+Registering a service worker using plugins:
+
+Many developers, including Mozilla, have tried to provide a solution to the problem above. They have developed general plugins that register one service worker and allow
+other plugins to add contents to it programmatically. That would work in theory, but in practice there are too many plugins that attempt to serve as a general solution 
+for service workers and everyone uses a different strategy to register service workers. So this is not the right solution.
