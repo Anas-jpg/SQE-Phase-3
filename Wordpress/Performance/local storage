@@ -1,1 +1,28 @@
+WordPress by default will save the name, email address, and home page of any user that leaves a comment in three separate cookies. Each subsequent request to the server
+will then contain this mostly useless data that just slows things down and introduces hurdles for efficient intermediary caching, so move the data into localStorage and
+just keep it locally on visitors’ devices.
 
+The below JavaScript example stores the commenter’s personal data in their browser’s localStorage when they submit a comment, and retrieves it if there’s a comment form
+on the page on later visits.
+
+// SPDX-License-Identifier: CC0-1.0
+
+if (typeof(Storage) !== 'undefined') {
+  var commentform = document.getElementById('commentform');
+  if (commentform) {
+    var author = document.getElementById('author'),
+      email  = document.getElementById('email'),
+      url = document.getElementById('url');
+    if (author && email && url) {
+      // store comment data when a comment is submitted
+      commentform.addEventListener('submit', function () {
+        localStorage.setItem('comment_author',  author.value);
+        localStorage.setItem('comment_email',   email.value);
+        localStorage.setItem('comment_webpage', url.value);
+      });
+      // populate the form with previously saved values
+      if (localStorage.length >= 2) {
+        author.value = localStorage.getItem('comment_author') || '';
+        email.value = localStorage.getItem('comment_email') || '';
+        url.value =  localStorage.getItem('comment_webpage') || '';
+} } } }
